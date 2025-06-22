@@ -18,7 +18,13 @@ ros2 launch panda_moveit_config moveit.launch.py
 ```
 
 ## Current Work in progress
+
+### To Do
+- create a package that will take input as coordinates and move the robotic arm
+- The code in the package will just take input coordinates and move the robotic arm to the given coordinates, it should have capability to connect to any robotic arm with 6-DOF.
+
+### For now solved
 - Could not contact service /controller_manager/list_controllers facing this error when launching moveit.launch.py
 - checking how to make sure controller starts because sometimes it runs sometime it doesn't
-### Progress 
+#### Solution
 - I changed output from "screen" to "log" to see if it works and now controller connects all the time. 
