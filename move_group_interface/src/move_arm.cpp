@@ -1,10 +1,13 @@
+
 #include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
 
 class MoveArm : public rclcpp::Node
 {
 public:
     MoveArm() : Node("MoveArm_node") 
     {
+        publisher_ = this->create_publisher<std_msgs::msg::String>("arm_publish", 10);
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(200),
             std::bind(&MoveArm::timerCallback, this));
@@ -12,9 +15,13 @@ public:
 private:
     void timerCallback()
     {
-        RCLCPP_INFO(this->get_logger(), "Hello from ROS2");
+        auto message = std_msgs::msg::String();
+        message.data = "Hello, world! " ;
+        publisher_->publish(message);
+        RCLCPP_INFO(this->get_logger(), message.data.c_str());
     }
     rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
 
 };
 
