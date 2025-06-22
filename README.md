@@ -16,3 +16,9 @@ ros2 launch panda_moveit_config demo.launch.py
 ```bash
 ros2 launch panda_moveit_config moveit.launch.py
 ```
+
+## Current Work in progress
+- Could not contact service /controller_manager/list_controllers facing this error when launching moveit.launch.py
+- checking how to make sure controller starts because sometimes it runs sometime it doesn't
+### Progress 
+- I changed output from "screen" to "log" to see if it works and now controller connects all the time. 
