@@ -26,14 +26,14 @@ def generate_launch_description():
     }
 
     run_move_group_node = Node(
-    package="moveit_ros_move_group",
-    executable="move_group",
-    output="screen",
-    parameters=[
-        moveit_config.to_dict(),
-        move_group_capabilities,
-    ],
-)
+        package="moveit_ros_move_group",
+        executable="move_group",
+        output="screen",
+        parameters=[
+            moveit_config.to_dict(),
+            move_group_capabilities,
+        ],
+    )
     
     # RViz2
     rviz_config_file = (
