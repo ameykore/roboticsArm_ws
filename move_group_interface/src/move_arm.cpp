@@ -7,11 +7,15 @@ class MoveArm : public rclcpp::Node
 public:
     MoveArm() : Node("MoveArm_node") 
     {
+        // planning group for a arm
+        static const std::string PLANNING_GROUP = "panda_arm";
+        
         publisher_ = this->create_publisher<std_msgs::msg::String>("arm_publish", 10);
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(200),
             std::bind(&MoveArm::timerCallback, this));
     }
+
 private:
     void timerCallback()
     {
